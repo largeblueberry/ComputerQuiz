@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComputerQuiz"
 include(":app")
- 
+include(":feature:quiz")
+include(":core:data")
+include(":core:domain")

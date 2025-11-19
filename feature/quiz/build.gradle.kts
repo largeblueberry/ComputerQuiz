@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
@@ -7,22 +7,14 @@ plugins {
 }
 
 android {
-    namespace = "com.largeblueberry.computerquiz"
+    namespace = "com.largeblueberry.quiz"
     compileSdk = 36
 
-    androidResources {
-        generateLocaleConfig = false
-        localeFilters += setOf("ko", "en")  // 이렇게 변경
-    }
-
     defaultConfig {
-        applicationId = "com.largeblueberry.computerquiz"
         minSdk = 30
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -42,24 +34,20 @@ android {
     buildFeatures {
         compose = true
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
 dependencies {
-    implementation(project(":core:data"))
-    implementation(project(":feature:quiz"))
-    implementation(project(":core:domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 
     implementation(platform(libs.androidx.compose.bom))
 
@@ -76,16 +64,8 @@ dependencies {
     // Activity Compose 통합
     implementation("androidx.activity:activity-compose")
 
-    // 디버깅 및 미리보기 도구
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    // ===== Navigation =====
-    implementation("androidx.navigation:navigation-compose:2.8.4")
-
-    // ===== Hilt (중복 제거 및 정리) =====
     implementation(libs.hilt.android)
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
+
 }
