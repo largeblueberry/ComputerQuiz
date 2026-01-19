@@ -1,16 +1,42 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
+# --- Kotlin & Build Output ---
+.kotlin/
+.gradle/
+build/
 /build
-/captures
-.externalNativeBuild
-.cxx
+bin/
+gen/
+.externalNativeBuild/
+.cxx/
+
+# --- IDE (Android Studio / IntelliJ) ---
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+out/
+
+# --- Local Configuration & Secrets ---
 local.properties
-.idea
+/local.properties
+.env.local
+.env.*.local
+
+# --- Logs & Captures ---
+*.log
+captures/
+/captures
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Others ---
+.navigation/
+assetWizardSettings.xml
