@@ -12,7 +12,7 @@ android {
 
     androidResources {
         generateLocaleConfig = false
-        localeFilters += setOf("ko", "en")  // 이렇게 변경
+        localeFilters += setOf("ko", "en")
     }
 
     defaultConfig {
@@ -84,7 +84,7 @@ dependencies {
     // ===== Navigation =====
     implementation("androidx.navigation:navigation-compose:2.8.4")
 
-    // ===== Hilt (중복 제거 및 정리) =====
+    // ===== Hilt =====
     implementation(libs.hilt.android)
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     ksp("com.google.dagger:hilt-android-compiler:2.56.2")
